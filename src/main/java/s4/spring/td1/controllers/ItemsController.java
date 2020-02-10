@@ -1,4 +1,4 @@
-package s4.spring.td1;
+package s4.spring.td1.controllers;
 
 import java.util.Arrays;
 import java.util.List;

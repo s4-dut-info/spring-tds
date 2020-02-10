@@ -58,6 +58,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>    
+                	<mainClass>s4.spring.td1.Td1Application</mainClass>
+            </configuration>
 			</plugin>
 		</plugins>
 	</build>
