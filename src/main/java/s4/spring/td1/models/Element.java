@@ -39,4 +39,18 @@ public class Element {
 		}
 		return nom != null && nom.equals(((Element) object).getNom());
 	}
+
+	public void inc() {
+		evaluation++;
+	}
+
+	public void dec() {
+		evaluation--;
+	}
+
+	@Override
+	public String toString() {
+		return "Element [nom=" + nom + ", evaluation=" + evaluation + "]";
+	}
+
 }

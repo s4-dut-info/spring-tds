@@ -4,7 +4,7 @@
 
 {{#message}}
 <div class="ui message">
-	{{message}}
+	{{&message}}
 </div>
 {{/message}}
 
@@ -18,7 +18,8 @@
 				<span class="ui image label">
 					<i class="star icon"></i> {{evaluation}}
 				</span>
-				<a class="ui mini compact icon button"><i class="plus icon"></i></a>
+				<a href="/items/inc/{{nom}}" class="ui mini compact icon button"><i class="plus icon"></i></a>
+				<a href="/items/dec/{{nom}}" class="ui mini compact icon button"><i class="minus icon"></i></a>
 			</div>
 		</div>
 	</div>
