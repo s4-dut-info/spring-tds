@@ -1,0 +1,30 @@
+{{> /main/vHeader}}
+
+<h1 class="ui header">Liste des items</h1>
+
+{{#message}}
+<div class="ui message">
+	{{message}}
+</div>
+{{/message}}
+
+<div class="ui relaxed divided list">
+{{#items}}
+	<div class="item">
+		<i class="large github middle aligned icon"></i>
+		<div class="content">
+			<div class="header">{{nom}}</div>
+			<div class="description">
+				<span class="ui image label">
+					<i class="star icon"></i> {{evaluation}}
+				</span>
+				<a class="ui mini compact icon button"><i class="plus icon"></i></a>
+			</div>
+		</div>
+	</div>
+{{/items}}
+{{^items}}
+ 		Aucun element ! :(
+{{/items}}
+</div>
+{{> /main/vFooter}}

@@ -4,6 +4,15 @@ public class Element {
 	private String nom;
 	private int evaluation;
 
+	public Element() {
+		this("no name", 0);
+	}
+
+	public Element(String nom, int evaluation) {
+		this.nom = nom;
+		this.evaluation = evaluation;
+	}
+
 	public String getNom() {
 		return nom;
 	}
