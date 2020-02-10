@@ -29,7 +29,7 @@ public class ItemsController {
 
 	@GetMapping
 	public String items() {
-		return "vItems";
+		return "/vItems";
 	}
 
 	@GetMapping("/clear")
