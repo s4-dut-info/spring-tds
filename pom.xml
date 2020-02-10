@@ -11,7 +11,7 @@
 	<groupId>s4.spring</groupId>
 	<artifactId>td1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>td1</name>
 	<description>Gestion d'items</description>
 
