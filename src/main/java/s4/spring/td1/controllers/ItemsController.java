@@ -1,6 +1,6 @@
 package s4.spring.td1.controllers;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -24,7 +25,10 @@ public class ItemsController {
 
 	@ModelAttribute("items")
 	public List<Element> getItems() {
-		return Arrays.asList(new Element("EmberJS", 4), new Element("Spring-boot", 5));
+		List<Element> items = new ArrayList<Element>();
+		items.add(new Element("EmberJS", 4));
+		items.add(new Element("Spring-boot", 5));
+		return items;
 	}
 
 	@GetMapping
@@ -47,6 +51,7 @@ public class ItemsController {
 			Element elm = items.get(index);
 			elm.inc();
 			attributes.addFlashAttribute("message", "item <b>" + elm + "</b> inc!");
+			attributes.addFlashAttribute("messageType", "info");
 		}
 		return new RedirectView("/items");
 	}
@@ -59,6 +64,26 @@ public class ItemsController {
 			Element elm = items.get(index);
 			elm.dec();
 			attributes.addFlashAttribute("message", "item <b>" + elm + "</b> dec!");
+			attributes.addFlashAttribute("messageType", "warning");
+		}
+		return new RedirectView("/items");
+	}
+
+	@GetMapping("/new")
+	public String frmNew() {
+		return "/vItemForm";
+	}
+
+	@PostMapping("/addNew")
+	public RedirectView addNew(@ModelAttribute Element item, RedirectAttributes attributes,
+			@SessionAttribute List<Element> items) {
+		if (!"".equals(item.getNom()) && items.indexOf(item) == -1) {
+			items.add(item);
+			attributes.addFlashAttribute("message", "item <b>" + item + "</b> added!");
+			attributes.addFlashAttribute("messageType", "success");
+		} else {
+			attributes.addFlashAttribute("message", "Opération annulée!");
+			attributes.addFlashAttribute("messageType", "warning");
 		}
 		return new RedirectView("/items");
 	}

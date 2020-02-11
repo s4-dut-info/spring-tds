@@ -3,11 +3,15 @@
 <h1 class="ui header">Liste des items</h1>
 
 {{#message}}
-<div class="ui message">
+<div class="ui {{messageType}} message">
 	{{&message}}
 </div>
 {{/message}}
 
+<a href="/items/new" class="ui button teal">
+		  <i class="icon plus"></i>
+		  Ajouter un item...
+</a>
 <div class="ui relaxed divided list">
 {{#items}}
 	<div class="item">

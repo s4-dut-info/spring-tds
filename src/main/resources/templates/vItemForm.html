@@ -1,0 +1,19 @@
+{{> /main/vHeader}}
+
+<h1 class="ui header">Nouvel item</h1>
+
+<form class="ui form" action="/items/addNew" method="post">
+  <div class="fields">
+    <div class="six wide field">
+      <input type="text" placeholder="Nom..." name="nom">
+    </div>
+    <div class="four wide field">
+      <input type="number" placeholder="Evaluation initiale..." name="evaluation" min="0" max="10" value="0">
+    </div>
+    <div class="six wide field">
+      <button class="ui icon positive button"><i class="check"></i>Valider</button>
+      <a href="/items" class="ui icon button"><i class="circle"></i>Annuler</a>
+    </div>
+  </div>
+  </form>
+{{> /main/vFooter}}
