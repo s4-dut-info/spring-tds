@@ -7,7 +7,7 @@ These applications are deployed on [Heroku](https://www.heroku.com/spring-boot) 
 
 * TD n°1 :
   * [source code](https://github.com/s4-dut-info/spring-tds/tree/td1)
-  * [Heroku deployment](https://spring-td1.herokuapp.com)
+  * [Heroku deployment](https://spring-td1.herokuapp.com/items)
 
 ## Prerequisites
 
