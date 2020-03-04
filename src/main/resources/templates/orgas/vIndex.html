@@ -1,0 +1,20 @@
+{{>/main/header}}
+<template>
+    <v-data-table :headers="headers" :items="orgas" class="elevation-1">
+    	<template v-slot:item="props">
+    	<tr>
+			<td><% props.item.name %></td>
+			<td><% props.item.domain %></td>
+			<td><% props.item.aliases %></td>
+			<td class="justify-center layout px-0">
+				<v-icon small @click="deleteItem(props.item)">delete</v-icon>
+			</td>
+		</tr>
+		</template>
+    	<template v-slot:no-data>
+        	Aucune organisation à afficher
+        </template>
+    </v-data-table>
+</template>
+{{>/main/footer}}
+{{{vue}}}
