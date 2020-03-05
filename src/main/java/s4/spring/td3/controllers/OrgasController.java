@@ -30,13 +30,18 @@ public class OrgasController {
 	@GetMapping("/orgas")
 	public String orgas() {
 		List<Organization> orgas = repo.findAll();
+		String restUrl = "/rest/orgas/";
 		vue.addData("orgas", orgas);
-		vue.addDataRaw("headers",
-				"[{text:'Name', value:'name'},{text:'Domain', value:'domain'},{text:'Aliases', value:'aliases'},{ text: 'Actions', value: 'actions', sortable: false }]");
-		vue.addMethod("deleteItem",
-				"var self=this;"
-						+ Http.delete("/rest/orgas/", (Object) "{data: item}", JsArray.remove("self.orgas", "item")),
-				"item");
+		vue.addDataRaw("headers", "[{text:'Name', value:'name'},{text:'Domain', value:'domain'},{text:'Aliases', value:'aliases'},{ text: 'Actions', value: 'actions', sortable: false }]");
+		vue.addMethod("deleteItem", "var self=this;" + Http.delete(restUrl, (Object) "{data: item}", JsArray.remove("self.orgas", "item")), "item");
+		vue.addComputed("formTitle", "return this.editedIndex === -1 ? 'New Organization' : 'Edit Organization'");
+		vue.addWatcher("dialog", "val || this.close();");
+		vue.addData("dialog", false);
+		vue.addDataRaw("editedItem", "{}");
+		vue.addData("editedIndex", -1);
+		vue.addMethod("close", "this.dialog=false;setTimeout(() => {this.editedItem = {};this.editedIndex = -1;}, 300);");
+		vue.addMethod("save", "var self=this;let item=this.editedItem;if (this.editedIndex > -1) {" + Http.put(restUrl, (Object) "item", JsArray.replace("self.orgas", "self.editedIndex", "item") + "self.close();") + "}else{" + Http.post(restUrl, (Object) "item", JsArray.add("self.orgas", "item") + "self.close();") + "}");
+		vue.addMethod("editItem", "this.editedIndex = this.orgas.indexOf(item);this.editedItem = Object.assign({}, item);this.dialog = true;", "item");
 		return "orgas/vIndex";
 	}
 }
