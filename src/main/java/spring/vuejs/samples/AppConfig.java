@@ -1,4 +1,4 @@
-package s4.spring.td3;
+package spring.vuejs.samples;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package s4.spring.td3.controllers;
+package spring.vuejs.samples.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package s4.spring.td3;
+package spring.vuejs.samples;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
