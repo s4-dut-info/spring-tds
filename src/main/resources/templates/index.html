@@ -1,4 +1,13 @@
 {{>/main/header}}
+{{#activeUser.connected}}
+	<div class="ui compact inverted segment">
+		{{activeUser.name}}
+		<a href="/logout" class="ui red button">Logout</a>
+	</div>
+{{/activeUser.connected}}
+{{^activeUser.connected}}
+	<a href="/login" class="ui green button">Login</a>
+{{/activeUser.connected}}
 <h2 class="ui header">
   <i class="github icon"></i>
   <div class="content">

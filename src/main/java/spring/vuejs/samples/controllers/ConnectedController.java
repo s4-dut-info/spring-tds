@@ -1,32 +1,26 @@
 package spring.vuejs.samples.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import io.github.jeemv.springboot.vuejs.VueJS;
 import spring.vuejs.samples.classes.Sample;
+import spring.vuejs.samples.classes.User;
 
 @Controller
-public class TestController {
-	@Autowired
-	private VueJS vue;
+@SessionAttributes("activeUser")
+public class ConnectedController {
 
-	@ModelAttribute(name = "vue")
-	private VueJS getVue() {
-		return this.vue;
+	@ModelAttribute("activeUser")
+	private User getUser() {
+		return new User();
 	}
-
+	@RequestMapping("/{(index)?}")
 	public String index(ModelMap model) {
 		model.put("samples", Sample.all());
 		return "index";
 	}
 
-	@RequestMapping("/test")
-	public String test() {
-		vue.addData("message", "Hello world");
-		return "test";
-	}
 }
