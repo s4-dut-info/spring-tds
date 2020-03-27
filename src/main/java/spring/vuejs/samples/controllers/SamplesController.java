@@ -19,9 +19,18 @@ public class SamplesController {
 	}
 
 	@RequestMapping("/method")
-	public String test() {
+	public String mMethod() {
 		vue.addData("message", "Your message...");
 		vue.addMethod("clear", "this.message='';");
 		return "samples/method";
+	}
+
+	@RequestMapping("/computed")
+	public String mComputed() {
+		vue.addData("message", "Your message...");
+		vue.addMethod("clear", "this.message='';");
+		vue.addComputed("size", "return 100-this.message.length;");
+		vue.addFilter("plural", "if(value==0) return zero;if(value==1) return one;return value+other;", "zero", "one", "other");
+		return "samples/computed";
 	}
 }

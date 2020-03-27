@@ -1,0 +1,20 @@
+{{>/main/header}}
+<h2 class="ui header">
+  <i class="github icon"></i>
+  <div class="content">
+    Springboot-vueJS samples
+    <div class="sub header">Select an item to see the associated example.</div>
+  </div>
+</h2>
+<div class="ui relaxed divided list">
+	{{#samples}}
+		<div class="item">
+			<i class="large github middle aligned icon"></i>
+			<div class="content">
+				<a href="{{url}}" class="header">{{header}}</a>
+				<div class="description">{{description}}</div>
+    		</div>
+  		</div>
+  {{/samples}}
+</div>
+{{>/main/footer}}

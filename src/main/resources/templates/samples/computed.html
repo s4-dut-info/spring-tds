@@ -1,0 +1,11 @@
+{{>/main/header}}
+<div class="ui inverted fluid segment"><%message%></div>
+<div class="ui form">
+  <textarea type="text" placeholder="Search..." v-model="message"></textarea>
+  <button class="ui button" @click="clear">Clear message</button>
+</div>
+
+<div class="ui segment"><%size | plural("Aucun caractère restant","1 caractère restant"," caractères restants")%></div>
+
+{{>/main/footer}}
+{{{vue}}}

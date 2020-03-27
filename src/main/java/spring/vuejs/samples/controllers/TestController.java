@@ -17,6 +17,11 @@ public class TestController {
 		return this.vue;
 	}
 
+	@RequestMapping("/{(index)?}")
+	public String index() {
+		return "index";
+	}
+
 	@RequestMapping("/test")
 	public String test() {
 		vue.addData("message", "Hello world");
