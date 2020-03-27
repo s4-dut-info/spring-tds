@@ -19,7 +19,7 @@ public class TestController {
 		return this.vue;
 	}
 
-	@RequestMapping("/{(index)?}")
+	@RequestMapping(value = {"", "/", "index"})
 	public String index(ModelMap model) {
 		model.put("samples", Sample.all());
 		return "index";
