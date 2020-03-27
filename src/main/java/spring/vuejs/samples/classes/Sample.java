@@ -1,5 +1,8 @@
 package spring.vuejs.samples.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sample {
 	private String header;
 	private String description;
@@ -28,5 +31,13 @@ public class Sample {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public static List<Sample> all() {
+		List<Sample> all = new ArrayList<>();
+		all.add(new Sample("Test", "Hello world", "/test"));
+		all.add(new Sample("Methods", "Création de méthodes", "/samples/method"));
+		all.add(new Sample("Computed", "Création de computed properties", "/samples/computed"));
+		return all;
 	}
 }

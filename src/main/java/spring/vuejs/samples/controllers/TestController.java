@@ -2,10 +2,12 @@ package spring.vuejs.samples.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.github.jeemv.springboot.vuejs.VueJS;
+import spring.vuejs.samples.classes.Sample;
 
 @Controller
 public class TestController {
@@ -18,7 +20,8 @@ public class TestController {
 	}
 
 	@RequestMapping("/{(index)?}")
-	public String index() {
+	public String index(ModelMap model) {
+		model.put("samples", Sample.all());
 		return "index";
 	}
 
